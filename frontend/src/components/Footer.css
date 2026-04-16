@@ -1,0 +1,159 @@
+.site-footer {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4rem 2rem 2rem;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 4rem; /* space from main content */
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 5rem;
+}
+
+.footer-col h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1.25rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-col a {
+  color: #6b7280;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: #111827;
+}
+
+/* App Buttons */
+.footer-apps {
+  display: flex;
+  gap: 1rem;
+}
+
+.app-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: #111827;
+  transition: background-color 0.2s ease;
+}
+
+.app-btn:hover {
+  background-color: #f9fafb;
+}
+
+.app-btn-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-btn-text .small {
+  font-size: 0.6rem;
+  line-height: 1;
+  color: #4b5563;
+}
+
+.app-btn-text .large {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.footer-bottom-left a {
+  transition: color 0.2s;
+}
+
+.footer-bottom-left a:hover {
+  color: #111827;
+}
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  color: #6b7280;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.social-icons a:hover {
+  color: #111827;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

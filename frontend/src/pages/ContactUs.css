@@ -1,0 +1,131 @@
+.contact-content {
+  display: flex;
+  max-width: 1200px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  gap: 4rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-left {
+  flex: 1;
+  max-width: 450px;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #171f30;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.contact-description {
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.contact-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #1f2937;
+  color: #ffffff;
+  border-radius: 6px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.contact-socials a:hover {
+  background-color: #fbbf24;
+  transform: translateY(-2px);
+}
+
+.contact-right {
+  flex: 1;
+  min-width: 500px;
+}
+
+.contact-form {
+  background: #ffffff;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-row .form-group {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #fbbf24;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-left, .contact-right {
+    max-width: 100%;
+    min-width: 100%;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
