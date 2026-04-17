@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: travel-go
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: <your-registry>/travel-go-frontend:latest # UPDATE THIS
+          ports:
+            - containerPort: 80
+          env:
+            - name: VITE_API_URL
+              value: "http://<backend-load-balancer-or-ingress>:8000" # UPDATE THIS
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: travel-go
+spec:
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer

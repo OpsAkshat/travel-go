@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: travel-go
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: <your-registry>/travel-go-backend:latest # UPDATE THIS
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: travel-go-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: travel-go
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 8000
+      targetPort: 8000
+  type: ClusterIP
