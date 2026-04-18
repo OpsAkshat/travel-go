@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: crickplankton/travel-go-backend:latest
+          image: crickplankton/travel-backend:latest
           ports:
             - containerPort: 8000
           envFrom:

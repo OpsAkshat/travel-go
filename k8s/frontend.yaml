@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: crickplankton/travel-go-frontend:latest 
+          image: crickplankton/travel-frontend:latest 
           ports:
             - containerPort: 80
           env:
