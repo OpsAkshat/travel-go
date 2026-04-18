@@ -34,4 +34,3 @@ backend/travelgo.db
 Thumbs.db
 
 #k8s 
-k8s/secrets.yaml
