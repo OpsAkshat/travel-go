@@ -13,14 +13,56 @@ spec:
       labels:
         app: backend
     spec:
+    
+      initContainers:
+        - name: wait-for-db
+          image: busybox
+          command:
+            [
+              "sh",
+              "-c",
+              "until nc -z postgres 5432; do echo waiting for db; sleep 2; done;"
+            ]
+
       containers:
         - name: backend
           image: crickplankton/travel-backend:latest
+
+          
+          imagePullPolicy: Always
+
           ports:
             - containerPort: 8000
+
+        
           envFrom:
             - secretRef:
                 name: travel-go-secrets
+
+          
+          readinessProbe:
+            httpGet:
+              path: /docs
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+
+          livenessProbe:
+            httpGet:
+              path: /docs
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+
+         
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
 ---
 apiVersion: v1
 kind: Service
@@ -34,3 +76,4 @@ spec:
     - port: 8000
       targetPort: 8000
   type: ClusterIP
+  
