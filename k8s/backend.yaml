@@ -46,14 +46,14 @@ spec:
           
           readinessProbe:
             httpGet:
-              path: /api/docs
+              path: /docs
               port: 8000
             initialDelaySeconds: 10
             periodSeconds: 5
 
           livenessProbe:
             httpGet:
-              path: /api/docs
+              path: /docs
               port: 8000
             initialDelaySeconds: 20
             periodSeconds: 10
