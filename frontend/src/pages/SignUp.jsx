@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API_URL from '../config/api';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
 import HeroHeader from '../components/HeroHeader';
@@ -19,7 +20,7 @@ const SignUp = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:8000/user/register2', {
+      const response = await fetch(`${API_URL}/user/register2`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

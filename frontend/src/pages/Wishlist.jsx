@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_URL from '../config/api';
 import { Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import HeroHeader from '../components/HeroHeader';
@@ -18,7 +19,7 @@ const Wishlist = () => {
         return;
       }
       try {
-        const res = await fetch('http://localhost:8000/wishlist/', {
+        const res = await fetch(`${API_URL}/wishlist/`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (res.ok) {
@@ -26,7 +27,7 @@ const Wishlist = () => {
           // Fetch package details for each wishlist item
           const detailedWishlist = await Promise.all(
             listItems.map(async (item) => {
-              const pkgRes = await fetch(`http://localhost:8000/packages/${item.package_id}`);
+              const pkgRes = await fetch(`${API_URL}/packages/${item.package_id}`);
               if (pkgRes.ok) {
                 const pkgData = await pkgRes.json();
                 return {
@@ -56,7 +57,7 @@ const Wishlist = () => {
     e.stopPropagation();
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:8000/wishlist/${packageId}`, {
+      const res = await fetch(`${API_URL}/wishlist/${packageId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });

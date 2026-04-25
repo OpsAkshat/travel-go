@@ -18,9 +18,6 @@ spec:
           image: crickplankton/travel-frontend:latest 
           ports:
             - containerPort: 80
-          env:
-            - name: _URL
-              value: "/api" 
 ---
 apiVersion: v1
 kind: Service

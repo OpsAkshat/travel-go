@@ -35,6 +35,10 @@ spec:
             - containerPort: 8000
 
         
+          env:
+            - name: ROOT_PREFIX
+              value: "/api"
+
           envFrom:
             - secretRef:
                 name: travel-go-secrets
@@ -42,14 +46,14 @@ spec:
           
           readinessProbe:
             httpGet:
-              path: /docs
+              path: /api/docs
               port: 8000
             initialDelaySeconds: 10
             periodSeconds: 5
 
           livenessProbe:
             httpGet:
-              path: /docs
+              path: /api/docs
               port: 8000
             initialDelaySeconds: 20
             periodSeconds: 10

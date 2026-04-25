@@ -6,6 +6,10 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
+# Accept the API URL as a build argument (/api for production with ingress)
+ARG VITE_API_URL="/api"
+ENV VITE_API_URL=$VITE_API_URL
+
 # Copy package files first to leverage Docker layer caching
 COPY package.json package-lock.json ./
 
@@ -15,7 +19,7 @@ RUN npm ci
 # Copy the rest of the source code
 COPY . .
 
-# Build the production bundle
+# Build the production bundle (Vite bakes VITE_* env vars at build time)
 RUN npm run build
 
 # Stage 2: Serve with Nginx

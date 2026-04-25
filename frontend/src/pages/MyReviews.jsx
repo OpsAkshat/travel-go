@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import API_URL from '../config/api';
 import { Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import HeroHeader from '../components/HeroHeader';
@@ -19,7 +20,7 @@ const MyReviews = () => {
         return;
       }
       try {
-        const res = await fetch('http://localhost:8000/reviews/me', {
+        const res = await fetch(`${API_URL}/reviews/me`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (res.ok) {

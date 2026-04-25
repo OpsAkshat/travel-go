@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_URL from '../config/api';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Star, Tag, ChevronLeft, ChevronRight, Plus, Minus, CheckCircle2, XCircle } from 'lucide-react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -29,12 +30,12 @@ const PackageDetail = () => {
   useEffect(() => {
     const fetchPkg = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/packages/${id}`);
+        const res = await fetch(`${API_URL}/packages/${id}`);
         if(res.ok) {
           const data = await res.json();
           setPkg(data);
         }
-        const reviewRes = await fetch(`http://localhost:8000/reviews/${id}/`);
+        const reviewRes = await fetch(`${API_URL}/reviews/${id}/`);
         if(reviewRes.ok) {
           const rData = await reviewRes.json();
           setReviews(rData);
@@ -159,7 +160,7 @@ const PackageDetail = () => {
 
     try {
       // 0. Create Booking first
-      const bookingResponse = await fetch('http://localhost:8000/bookings/', {
+      const bookingResponse = await fetch(`${API_URL}/bookings/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -179,7 +180,7 @@ const PackageDetail = () => {
       const newBookingId = bookingData.id;
 
       // 1. Create order on the backend
-      const orderResponse = await fetch('http://localhost:8000/payment/create-order', {
+      const orderResponse = await fetch(`${API_URL}/payment/create-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -204,7 +205,7 @@ const PackageDetail = () => {
         order_id: orderData.razorpay_order_id,
         handler: async function (response) {
           // 3. Verify Payment
-          const verifyResponse = await fetch('http://localhost:8000/payment/verify', {
+          const verifyResponse = await fetch(`${API_URL}/payment/verify`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -270,7 +271,7 @@ const PackageDetail = () => {
     }
 
     try {
-      const res = await fetch('http://localhost:8000/reviews/', {
+      const res = await fetch(`${API_URL}/reviews/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -387,7 +388,7 @@ const PackageDetail = () => {
                       return;
                     }
                     try {
-                      const res = await fetch(`http://localhost:8000/wishlist/${id}`, {
+                      const res = await fetch(`${API_URL}/wishlist/${id}`, {
                         method: 'POST',
                         headers: { 'Authorization': `Bearer ${token}` }
                       });

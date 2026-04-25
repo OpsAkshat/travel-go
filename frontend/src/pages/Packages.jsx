@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import API_URL from '../config/api';
 import { Link } from 'react-router-dom';
 import HeroHeader from '../components/HeroHeader';
 import Footer from '../components/Footer';
@@ -45,7 +46,7 @@ const Packages = () => {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const response = await fetch('http://localhost:8000/packages/');
+        const response = await fetch(`${API_URL}/packages/`);
         if (!response.ok) throw new Error('Failed to load packages');
         const data = await response.json();
         setPackages(data);
