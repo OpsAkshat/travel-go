@@ -17,7 +17,7 @@ import os
 # while still working at / during local development.
 ROOT_PREFIX = os.getenv("ROOT_PREFIX", "")
 
-app = FastAPI(title="This is My travel Website")
+app = FastAPI(title="This is My travel Website",root_path=ROOT_PREFIX)
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,10 +27,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(user_routes, prefix=ROOT_PREFIX)
-app.include_router(package_routes, prefix=ROOT_PREFIX)
-app.include_router(booking_routes, prefix=ROOT_PREFIX)
-app.include_router(review_routes, prefix=ROOT_PREFIX)
-app.include_router(wishlist_routes, prefix=ROOT_PREFIX)
-app.include_router(payment_routes, prefix=ROOT_PREFIX)
+app.include_router(user_routes)
+app.include_router(package_routes)
+app.include_router(booking_routes)
+app.include_router(review_routes)
+app.include_router(wishlist_routes)
+app.include_router(payment_routes)
 
