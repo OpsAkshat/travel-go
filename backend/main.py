@@ -11,13 +11,7 @@ from src.payment.router import payment_routes
 
 Base.metadata.create_all(engine) 
 
-import os
-
-# ROOT_PREFIX allows the app to be served under /api in production (behind ingress)
-# while still working at / during local development.
-ROOT_PREFIX = os.getenv("ROOT_PREFIX", "")
-
-app = FastAPI(title="This is My travel Website",root_path=ROOT_PREFIX)
+app = FastAPI(title="This is My travel Website")
 
 app.add_middleware(
     CORSMiddleware,
