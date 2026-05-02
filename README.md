@@ -2,6 +2,9 @@
 
 Travel Go is a full-stack web application designed for booking domestic and international travel packages. Users can browse available packages, save them to a wishlist, leave reviews, and complete bookings through a secure checkout process. 
 
+## YouTube Demonstration link
+- https://youtu.be/XvX7YtasprM
+
 ## Tech Stack
 
 ### Frontend
@@ -22,28 +25,9 @@ Travel Go is a full-stack web application designed for booking domestic and inte
 - `/frontend`: Contains all React components, pages, and CSS assets.
 - `/backend`: Contains the FastAPI application, database schemas, and API routes.
 
-## Local Setup Instructions
-
-### Backend
-1. Navigate to the `backend` directory.
-2. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Set your environment variables (Database URL, JWT Secret, Razorpay keys).
-4. Start the FastAPI server:
-   ```bash
-   uvicorn main:app --reload
-   ```
-
-### Frontend
-1. Navigate to the `frontend` directory.
-2. Install Node dependencies:
-   ```bash
-   npm install
-   ```
-3. Set your API URL variable environment.
-4. Start the frontend development server:
-   ```bash
-   npm run dev
-   ```
+## Prodcution 
+- EC2 
+- KIND Cluster
+- ArgoCD
+- Grafana
+-  Terrafrom 
